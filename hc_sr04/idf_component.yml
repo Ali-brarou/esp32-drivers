@@ -1,0 +1,5 @@
+version: "1.0.0"
+description: "Driver for HC-SR04 ultrasonic distance sensor"
+maintainers:
+  - "Ali Brarou <alibrarou16@gmail.com>"
+license: "MIT"
