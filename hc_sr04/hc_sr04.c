@@ -8,10 +8,8 @@ static gpio_num_t echo_pin, trig_pin;
 
 esp_err_t hc_sr04_init(const hc_sr04_config_t *config)
 {   
-    /*
     if (!config)
-        return ESP_ERR_INV_ARG; 
-    */
+        return ESP_ERR_INVALID_ARG; 
 
     echo_pin = config->echo_pin; 
     trig_pin = config->trig_pin; 
@@ -30,6 +28,9 @@ esp_err_t hc_sr04_init(const hc_sr04_config_t *config)
 esp_err_t hc_sr04_measure(float *distance_cm)
 {
     uint64_t echo_start, echo_end; 
+
+    if (!distance_cm)
+        return ESP_ERR_INVALID_ARG; 
 
     gpio_set_level(trig_pin, 0); 
     ets_delay_us(2);
